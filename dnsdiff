@@ -98,7 +98,7 @@ def main():
         delay_enabled = True
         delay_max = int(args.delay_max)
 
-    # TODO: disable color if output is not a terminal 
+    # TODO: disable color if output is not a terminal
     color_enabled = args.color_enabled
 
     # relativize=False evaluates $ORIGIN and expands @
@@ -122,10 +122,8 @@ def main():
         rdtype = dns.rdatatype.to_text(rdataset.rdtype)
         query = dns.message.make_query(rname, rdtype)
 
-        #sys.stderr.write("dig @%s %s %s" % (ns1_name, rname, rdtype))
         r1 = get_dns_response(query, ns1_addr, ns1_name, rname, rdtype)
 
-        #sys.stderr.write("dig @%s %s %s" % (ns2_name, rname, rdtype))
         r2 = get_dns_response(query, ns2_addr, ns2_name, rname, rdtype)
 
         # To help avoid rate limits
